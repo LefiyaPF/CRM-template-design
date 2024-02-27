@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Popup</title>
+<style>
+    /* Basic styling for cards */
+    .card {
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        margin: 10px;
+        padding: 10px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+    <!-- Pop-up Page -->
+    <div id="popup-page">
+        <h2>Added Cards</h2>
+        <div id="added-cards"></div>
+    </div>
+
+    <script>
+        const addedCards = document.getElementById('added-cards');
+
+        // Parse the query parameter to get the card ID
+        const urlParams = new URLSearchParams(window.location.search);
+        const cardId = urlParams.get('cardId');
+
+        // Create a new card based on the received ID
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.textContent = 'Card ' + cardId.substring(4); // Extract the number from the card ID
+        card.setAttribute('draggable', true);
+
+        // Add the card to the added cards container
+        addedCards.appendChild(card);
+
+        // Allow drag and drop functionality for added cards
+        card.addEventListener('dragstart', function(event) {
+            event.dataTransfer.setData('text/plain', card.textContent);
+        });
+    </script>
+</body>
+</html>

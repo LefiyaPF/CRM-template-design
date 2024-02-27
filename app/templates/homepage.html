@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* Customize CSS here */
+    /* Apply Google Font to navbar elements */
+    .navbar {
+  font-family: "Audiowide", sans-serif;
+}
+
+.navbar-nav .nav-item {
+  border-right: 1px solid rgba(0, 0, 0, 0.356);
+  padding-right: 15px;
+}
+
+.navbar-nav .nav-item:last-child {
+  border-right: none;
+}
+
+.navbar-nav .nav-link {
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+}
+
+.btn-group {
+  margin-left: rem;
+}
+
+.overlay {
+  font-family: "Audiowide", sans-serif;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  color: white;
+}
+
+.overlay h5 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: rgba(17, 8, 8, 0.63);
+}
+
+span {
+  color: rgba(214, 24, 24, 0.63);
+}
+
+.overlay h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: rgba(0, 0, 0, 0.63);
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+
+.banner img {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f0f0f0;
+  clip-path: ellipse(90% 80% at 50% 100%);
+  z-index: -1;
+}
+
+.content {
+  position: relative;
+  font-family: "Audiowide", sans-serif;
+  z-index: 1;
+  padding: 20px;
+  color: brown;
+}
+
+/* Media Queries for responsiveness */
+
+@media (max-width: 768px) {
+  /* Adjust styles for smaller screens */
+  .navbar-nav .nav-item {
+    border-right: none;
+    padding-right: 0;
+    margin-bottom: 10px; /* Add some space between nav items */
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.5rem 0.75rem;
+    margin: 0;
+  }
+
+  .btn-group {
+    margin-left: 0;
+    margin-top: 10px; /* Add some space between buttons */
+  }
+
+  .overlay h2 {
+    font-size: 24px;
+  }
+
+  .overlay h5 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+}
+.row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        text-align: center;
+        margin: 2%;
+       
+    }
+.product-card {
+    border: 4px solid white;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .product-card:hover {
+    transform: scale(1.05);
+  }
+
+  .product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .product-details {
+    padding: 15px;
+  }
+
+  .product-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .product-price {
+    color: #0e0e0f;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+
+  .product-description {
+    font-size: 0.9rem;
+  }
+
+        .popup {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent background */
+            overflow: auto;
+        }
+
+        .popup-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: red;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+       
+
+        .card-content {
+            padding: 10px;
+        }
+
+        .card-content p {
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .contents {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .text {
+            flex-basis: 60%;
+            margin-right: 20px;
+            font-family: "Audiowide", sans-serif;
+            transition: transform 0.3s ease-in-out;
+        }
+        .text:hover{
+            transform: scale(1.05);
+            color: brown;
+        }
+        .image {
+            flex-basis: 35%;
+            margin-top: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+          
+        }
+        .image:hover{
+      transform: scale(1.05);
+    }
+
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            .text, .image {
+                flex-basis: 100%;
+                margin-right: 0;
+            }
+        }
+        h1{
+            font-family: "Audiowide", sans-serif;
+            text-align: center;
+        }
+        .aa {
+    border-top-left-radius: 50px; /* Curved top-left corner */
+    border-bottom-right-radius: 50px;
+    font-family: "Audiowide", sans-serif; /* Curved bottom-right corner */
+}
+.card:hover {
+        transform: scale(1.05);
+    }
+
+    .card {
+        margin: auto;
+        transition: transform 0.3s ease-in-out;
+        border-color: white;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    }
+    .card img {
+        height: 250px;
+        border-color: white;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .footer {
+    background-color: #363738af;
+    padding: 30px 0;
+    
+}
+
+.footer h5 {
+    color: #fdfbfb;
+    font-size: 18px;
+    font-family: "Audiowide", sans-serif;
+}
+
+.footer ul {
+    list-style: none;
+    padding-left: 0;
+    color: #fdfbfb;
+}
+
+.footer ul li {
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.footer ul li:hover {
+    color: #007bff;
+    cursor: pointer;
+}
+
+.contact-list {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+.footer h2{
+    color: white;
+    font-family: "Audiowide", sans-serif;
+}
+.footer h4{
+    color: white;
+}
+.contact-list li {
+    margin-right: 10px;
+    font-size: 24px; /* Increase the font size */
+}
+.contact-list .fab {
+    color: white;
+}
+.contact-list li a {
+    color: #333;
+    text-decoration: none;
+}
+
+.contact-list li a:hover {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.contact-list li a i {
+    margin-right: 5px;
+} 
+    </style>
+</head>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container"> <!-- Wrap navbar content in a container for better responsiveness -->
+      <a class="navbar-brand" href="#">
+        <h2>ALTOS</h2>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto"> <!-- Adjust alignment of navbar items -->
+          <li class="nav-item">
+            <a class="nav-link" href="#crm"><i class="fas fa-home"></i> CRM</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#overview"><i class="fas fa-chart-line"></i> OVERVIEW</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#features"><i class="fas fa-sign-in-alt"></i> FEATURES</a>
+          </li>
+        </ul>
+        <div class="btn-group">
+          <a href="" class="btn btn-success"><i class="fas fa-user"></i> SIGN IN</a>
+          <a href="" class="btn btn-secondary">FREE TRIAL</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+<br>
+<br>
+<br>
+  <div class="overlay">
+    <h2> <span>Sales teams</span> from good to great</h2>
+      <h5>Altos CRM is the true customer-centric tool for your sales needs. <br>
+        Track leads, get accurate forecasts, and focus on what matters: <br>
+        closing opportunities.
+      </h5>
+      <button class="btn btn-dark">Start Now-Free</button>
+      <button class="btn btn-danger">Start Demo</button><br>
+   
+  </div>
+<br>
+<br>
+<br>
+<br>
+
+  <div class="banner">
+    <img src="https://odoocdn.com/openerp_website/static/src/img/apps/crm/hero_image.webp" alt="Banner Image" style="border-radius: 5px ;box-shadow: 10px 10px;">
+    <br>
+    <div class="content">
+        <br>
+        <br>
+      <!-- Content goes here -->
+      <h1>CRM SALES TEAM</h1>
+      <p style="color: blue;">Learn more about what we offer.</p>
+    </div>
+  </div>
+
+  <div class="bb" style="background-color: rgba(192, 240, 255, 0.26);">
+    <br>
+    <br>
+    <div class="container" >
+        <div class="contents">
+            <div class="text">
+                <h2 style="color: rgb(11, 11, 110);">Smart Decisions Dashboard</h2>
+                <p>Smart decisions are based on accurate and real-time data. Dig deeper into your sales metrics with revenue forecasts, team performance analysis, and custom dashboards.</p>
+                <p>Ensure your business stays ahead by leveraging insights from comprehensive revenue forecasts and detailed team performance analysis. Custom dashboards allow you to monitor key metrics at a glance and make informed decisions swiftly.</p>
+            </div>
+            <div class="image">
+                <img src="https://th.bing.com/th/id/R.45d66cf7ad649a7755c62c59d0c3fcf9?rik=CtqX%2bjy2SetJoA&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2fteamwork-transparent-background%2fteamwork-transparent-background-8.png&ehk=TICT6ZY9EM6IkaE5WWmHBqY54IJki%2f%2bU5XgTaeYGXEU%3d&risl=&pid=ImgRaw&r=0" alt="Dashboard Image">
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <div claas="hd">
+        <br>
+        <br>
+        <h1 style="color:#585050">Turn Reporting data into money <i class="fas fa-chart-line fa-2x" style="color: rgba(165, 42, 42, 0.781);"></i></h1>
+    <br>
+    <br>
+</div>
+    <div class="row">
+
+        <div class="col-lg-3">
+            
+          <div class="product-card">
+            <img src="https://th.bing.com/th/id/R.3de9335493a6df6a7be3fbe375a108ff?rik=RGj%2fjbgRWv230g&riu=http%3a%2f%2fwww.keynotepro.com%2fimages%2fthemes%2fTokyo08%2fpreview4.jpg&ehk=rE2L1b8y42wPnfMi%2fEwLwoSWAi%2f4cHdYXUdAQMN0YMU%3d&risl=&pid=ImgRaw&r=0"
+              alt="Product Image" class="product-image">
+            <div class="product-details">
+              <h1 class="product-title" style="font-weight: bold;">Progression</h1>
+           
+              
+              <a href=""><button class="btn btn-success btn-sm">Show More</button></a>
+    
+            
+          </div>
+        </div>
+    </div>
+    
+        <!-- Add more product cards as needed -->
+        
+    
+          <div class="col-lg-3">
+            <div class="product-card">
+              <img
+                src="https://th.bing.com/th/id/R.de41daaaed5f17262e83c0d74a4480dd?rik=vjykLbHgjd5JVg&riu=http%3a%2f%2fwww.artmarketmonitor.com%2fwp-content%2fuploads%2f2015%2f10%2fFrieze-03-15-Vol-Avg-Price.png&ehk=I1GMhkVFdCuzZuSgrzk8YC5EYW8QNLrjQXCXkrU9K5A%3d&risl=&pid=ImgRaw&r=0"
+                alt="Product Image" class="product-image"><br><br>
+              <div class="product-details">
+                <br>
+                <br>
+                <br>
+                <h1 class="product-title" style="font-weight: bold;">Annual Sales</h1>
+                
+                
+                <a href=""><button class="btn btn-success btn-sm">Show More</button></a>
+              </div>
+            </div>
+          </div>
+       
+    
+        <!-- Add more product cards as needed -->
+
+        <div class="col-lg-3">
+          <div class="product-card">
+            
+            <img
+              src="https://www.conceptdraw.com/solution-park/resource/images/solutions/line-graphs/Graphs-and-charts-Line-Graphs-Steps-Walked-in-a-Week.png"
+              alt="Product Image" class="product-image"><br><br>
+            <div class="product-details">
+              <h1 class="product-title" style="font-weight: bold;">Activities</h1>
+              
+              
+              <a href=""><button class="btn btn-success btn-sm">Show More</button></a>
+            </div>
+          </div>
+        </div>
+    
+    
+    
+    
+      </div>
+    
+<br>
+<br>
+
+
+      
+<div>
+
+    <h1>Meet the <span style="color: green;">Team </span> <i class="fas fa-users fa-2x" style="color: rgb(221, 209, 44);"></i>
+        </h1>
+  </div>   
+  <br>
+  <br>
+    <div class="row">
+
+        <div class="card" style="width: 20rem;" data-aos="flip-right">
+            <br>
+            <img src="https://th.bing.com/th/id/OIP.zsEe6WdVPtXmxt5UxhYZ6wHaFj?rs=1&pid=ImgDetMain" class="card-img-top"
+                alt="...">
+            <div class="card-body">
+                <h5 class="card-title" style="background-color: black; color: white;border-radius: 5px; text-align: center;">JOHN WAYNE</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor </p>
+
+            </div>
+        </div>
+
+        <div class="card" style="width: 20rem;" data-aos="flip-right">
+            <br>
+            <img src="https://th.bing.com/th/id/OIP.5A_p9dHTe_Aud8lCUeRaeQHaHe?rs=1&pid=ImgDetMain" class="card-img-top"
+                alt="...">
+            <div class="card-body">
+                <h5 class="card-title" style="background-color: black; color: white;border-radius: 5px; text-align: center;">SANA ZAIN</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor </p>
+
+            </div>
+        </div>
+
+
+        <div class="card" style="width: 20rem;" data-aos="flip-right">
+            <br>
+            <img src="https://i.pinimg.com/originals/6d/8e/b9/6d8eb9c71b44a10a790162527e4909f5.jpg" class="card-img-top"
+                alt="...">
+            <div class="card-body">
+                <h5 class="card-title" style="background-color: black; color: white;border-radius: 5px; text-align: center;">AMEERA ANTO</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor </p>
+
+            </div>
+        </div>
+
+
+        <div class="card" style="width: 20rem;" data-aos="flip-right">
+            <br>
+
+            <img src="https://blueskyphotography.s3.eu-west-2.amazonaws.com/wp-content/uploads/2020/06/blue_sky_photography_people_photography_0041.jpg"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title" style="background-color: black; color: white;border-radius: 5px; text-align: center;">ANTONY JES</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor </p>
+
+            </div>
+        </div>
+
+        <div class="card" style="width: 20rem;" data-aos="flip-right">
+            <br>
+            <img src="https://blueskyphotography.s3.eu-west-2.amazonaws.com/wp-content/uploads/2020/06/blue_sky_photography_people_photography_0032.jpg"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title" style="background-color: black; color: white;border-radius: 5px; text-align: center;">JUDE S T</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor </p>
+            
+
+            </div>
+        </div>
+
+
+   
+</div>
+
+<div class="aa" style="background-color: rgba(187, 187, 107, 0.336); border-radius: 20px; overflow: hidden;">
+    <div>
+<br>
+      <h1>Effortless <span style="color: green;">communication </span>means, no <span style="color: green;">miscommunication</span> <i class="fas fa-comments fa-2x" style="color: rgb(221, 209, 44);"></i>
+          </h1>
+          <br>
+    </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3" data-aos="flip-right">
+            <img src="https://odoocdn.com/openerp_website/static/src/img/icons/mail.svg" class="img-fluid">
+            <h3>Email</h3>
+        </div>
+        <div class="col-sm-3" data-aos="flip-right">
+            <img src="https://odoocdn.com/openerp_website/static/src/img/icons/message-2.svg" class="img-fluid">
+            <h3>Live Chat</h3>
+        </div>
+        <div class="col-sm-3" data-aos="flip-right">
+            <img src="https://odoocdn.com/openerp_website/static/src/img/icons/vibrate.svg" class="img-fluid">
+            <h3>SMS</h3>
+        </div>
+        <div class="col-sm-3" data-aos="flip-right">
+            <div data-aos="flip-right">
+            <img src="https://odoocdn.com/openerp_website/static/src/img/icons/call.svg" class="img-fluid"></div>
+            <h3>Call</h3>
+        </div>
+    </div>
+</div>
+<br>
+</div>
+
+  <!-- MESSAGES -->
+  <div class="container">
+    <div class="row">
+        <div style="max-height: 700px; overflow-y: auto;" class="col-md-6">
+            <div class="card-container drop1 justify-content-around" id="card-container1" ondrop="drop(event)"
+                ondragover="allowDrop(event)">
+                <!-- Card content -->
+                <div class="card drop2" id="card1" draggable="true" ondragstart="drag(event)"
+                    onclick="openPopup('card1')">
+                    <h4><img src="" alt="Image 1"><span
+                            class="fst-italic body mx-2">Company Name</span></h4>
+                    <div class="card-content drop3">
+                        <h5 class="fst-italic">SUBJECT</h5>
+                        <p class="fst-italic">"Embrace the uncertainty of today with the confidence of tomorrow.
+                            Every challenge is an opportunity, and every setback is a lesson. Keep moving forward,
+                            for greatness lies ahead."</p>
+                        <a class="btn btn-outline-success fst-italic fw-medium" href="">READ</a>
+                    </div>
+                </div>
+
+                <div class="card drop2" id="card2" draggable="true" ondragstart="drag(event)"
+                    onclick="openPopup('card2')">
+                    <h4><img src="" alt="Image 1"><span
+                            class="fst-italic body mx-2">Company Name</span></h4>
+                    <div class="card-content drop3">
+                        <h5 class="fst-italic">SUBJECT</h5>
+                        <p class="fst-italic">"Embrace the uncertainty of today with the confidence of tomorrow.
+                            Every challenge is an opportunity, and every setback is a lesson. Keep moving forward,
+                            for greatness lies ahead."</p>
+                        <a class="btn btn-outline-success fst-italic fw-medium" href="">READ</a>
+                    </div>
+                </div>
+
+                <div class="card drop2" id="card3" draggable="true" ondragstart="drag(event)"
+                    onclick="openPopup('card3')">
+                    <h4><img src="" alt="Image 1"><span
+                            class="fst-italic body mx-2">Company Name</span></h4>
+                    <div class="card-content drop3">
+                        <h5 class="fst-italic">SUBJECT</h5>
+                        <p class="fst-italic">"Embrace the uncertainty of today with the confidence of tomorrow.
+                            Every challenge is an opportunity, and every setback is a lesson. Keep moving forward,
+                            for greatness lies ahead."</p>
+                        <a class="btn btn-outline-success fst-italic fw-medium" href="">READ</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Hidden popup for placing cards -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <h2>Place Card</h2>
+        <p>Drag and drop the card to the target area:</p>
+        <div id="target-container" class="card-container drop1" ondrop="placeCard(event)"
+            ondragover="allowDrop(event)">
+            <!-- Target area for placing cards -->
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+   <div class="container">
+        <div class="row">
+            
+            <div class="col-md-3">
+                <h5>Community</h5>
+                <ul>
+                    <li>Tutorials</li>
+                    <li>Documentation</li>
+                    <li>Forum</li>
+                </ul>
+                <h5>Open Source</h5>
+                <ul>
+                    <li>Download</li>
+                    <li>Github</li>
+                    <li>Runbot</li>
+                    <li>Translations</li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Services</h5>
+                <ul>
+                    <li>Odoo.sh Hosting</li>
+                    <li>Support</li>
+                    <li>Upgrade</li>
+                    <li>Custom Developments</li>
+                    <li>Education</li>
+                    <li>Find an Accountant</li>
+                    <li>Find a Partner</li>
+                    <li>Become a Partner</li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>About us</h5>
+                <ul>
+                    <li>Our company</li>
+                    <li>Brand Assets</li>
+                    <li>Contact us</li>
+                    <li>Jobs</li>
+                    <li>Events</li>
+                    <li>Podcast</li>
+                    <li>Blog</li>
+                    <li>Customers</li>
+                    <li>Legal • Privacy</li>
+                    <li>Security</li>
+                </ul>
+            </div>
+            <div class="col-md-12 text-center mt-5">
+                <h2>ALTOS</h2>
+                <ul class="contact-list">
+                    <li><h4><a href="#"><i class="fab fa-facebook"></i> </a></h4></li>
+                    <li><h4><a href="#"><i class="fab fa-twitter"></i></a></h4></li>
+                    <li><h4><a href="#"><i class="fab fa-instagram"></i></a></h4></li>
+                    <li><h4><a href="#"><i class="fab fa-linkedin"></i> </a></h4></li>
+                    <li><h4><a href="#"><i class="fab fa-github"></i> </a></h4></li>
+                    <li><h4><a href="mailto:info@example.com"><i class="far fa-envelope" style="color: white;"></i> </a></h4></li>
+                    <li><h4><a href="tel:+1234567890"><i class="fas fa-phone" style="color: white;"></i> </a></h4></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<footer class="text-light py-3" style='background: linear-gradient(to right, #030303, #373f3e);'>
+   
+            <div class="col text-center">
+                <p>&copy; 2024 Academy. All Rights Reserved.</p>
+            </div>
+        
+</footer>
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        var draggedElement = document.getElementById(data);
+        draggedElement.style.opacity = "1"; // Restore opacity
+        var targetContainer = ev.target.closest('.card-container');
+        var originalContainer = document.getElementById(data).closest('.card-container');
+        if (targetContainer && targetContainer !== originalContainer) {
+            targetContainer.appendChild(draggedElement);
+            // Remove the card from the original container
+            originalContainer.removeChild(draggedElement);
+        }
+    }
+
+    function openPopup(cardId) {
+        var popup = document.getElementById("popup");
+        popup.style.display = "block";
+        var targetContainer = document.getElementById("target-container");
+        var card = document.getElementById(cardId);
+        var originalContainer = card.closest('.card-container');
+        var clonedCard = card.cloneNode(true);
+        var uniqueId = cardId + '-popup'; // Add '-popup' suffix to cardId to make it unique
+        clonedCard.id = uniqueId; // Assign unique ID to cloned card
+        clonedCard.onclick = function () {
+            removeCardFromPopup(uniqueId);
+        };
+        targetContainer.appendChild(clonedCard);
+        originalContainer.removeChild(card);
+    }
+
+    function closePopup() {
+        var popup = document.getElementById("popup");
+        popup.style.display = "none";
+    }
+
+    function placeCard(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        var draggedElement = document.getElementById(data);
+        draggedElement.style.opacity = "1"; // Restore opacity
+        var targetContainer = ev.target.closest('.card-container');
+        targetContainer.appendChild(draggedElement);
+        closePopup();
+    }
+
+    function removeCardFromPopup(cardId) {
+        var targetContainer = document.getElementById("target-container");
+        var card = document.getElementById(cardId);
+        var originalContainer = card.closest('.card-container');
+        targetContainer.removeChild(card);
+        var originalCardId = cardId.replace('-popup', ''); // Remove '-popup' suffix to get original card ID
+        var originalCard = document.getElementById(originalCardId);
+        originalContainer.appendChild(originalCard);
+    }
+</script>
+
+<!-- POPOVER -->
+<script>
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+</script>
+
+<!-- MODAL JQ -->
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+  </script>
+<!-- JAVASCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+<script src="//cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/swiper-bundle.min.js"></script>
+
+<!-- JavaScript -->
+<!--Uncomment this line-->
+<script src="//cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/script.js"></script>
+
+</html>

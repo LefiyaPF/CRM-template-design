@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drag and Drop Archive with Undo</title>
+<style>
+    /* Basic styling for cards and pages */
+    .card {
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        margin: 10px;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    #archive-page {
+        margin-top: 20px;
+    }
+
+    #archive-container {
+        border: 2px dashed gray;
+        min-height: 100px;
+        padding: 10px;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+</head>
+<body>
+    <!-- Home Page -->
+    <div id="home-page">
+        <div class="card" draggable="true" id="card1">Card 1</div>
+        <div class="card" draggable="true" id="card2">Card 2</div>
+        <div class="card" draggable="true" id="card3">Card 3</div>
+        <div class="card" draggable="true" id="card4">Card 4</div>
+    </div>
+
+    <!-- Archive Page -->
+    <div id="archive-page">
+        <div id="archive-container"></div>
+        <button id="undo-btn">Undo</button>
+    </div>
+
+    <script>
+        const homePage = document.getElementById('home-page');
+        const archiveContainer = document.getElementById('archive-container');
+        const undoButton = document.getElementById('undo-btn');
+        let movedCards = [];
+
+        // Add event listeners for drag-and-drop on cards
+        homePage.addEventListener('dragstart', dragStart);
+
+        // Drag start function
+        function dragStart(event) {
+            event.dataTransfer.setData('text/plain', event.target.id);
+        }
+
+        // Allow drop on archive container
+        archiveContainer.addEventListener('dragover', dragOver);
+        archiveContainer.addEventListener('drop', drop);
+
+        // Drag over function
+        function dragOver(event) {
+            event.preventDefault();
+        }
+
+        // Drop function
+        function drop(event) {
+            event.preventDefault();
+            const cardId = event.dataTransfer.getData('text/plain');
+            const card = document.getElementById(cardId);
+            archiveContainer.appendChild(card);
+            card.classList.add('moved');
+            movedCards.push(cardId);
+            hideCardsInArchive();
+        }
+
+        // Hide other cards in the archive
+        function hideCardsInArchive() {
+            const archiveCards = Array.from(archiveContainer.children);
+            archiveCards.forEach(archiveCard => {
+                if (!archiveCard.classList.contains('moved')) {
+                    archiveCard.classList.add('hidden');
+                }
+            });
+        }
+
+        // Add event listener for undo button
+        undoButton.addEventListener('click', undoMove);
+
+        // Undo move function
+        function undoMove() {
+            const lastMovedCardId = movedCards.pop();
+            const lastMovedCard = document.getElementById(lastMovedCardId);
+            lastMovedCard.classList.remove('moved');
+            archiveContainer.removeChild(lastMovedCard);
+            showAllCardsInArchive();
+            // Move the card back to the home page
+            homePage.appendChild(lastMovedCard);
+            lastMovedCard.classList.remove('hidden');
+        }
+
+        // Show all cards in the archive
+        function showAllCardsInArchive() {
+            const archiveCards = Array.from(archiveContainer.children);
+            archiveCards.forEach(archiveCard => {
+                archiveCard.classList.remove('hidden');
+            });
+        }
+    </script>
+</body>
+</html>

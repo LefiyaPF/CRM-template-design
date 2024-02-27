@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Archive Page</title>
+<style>
+    /* Basic styling for cards and pages */
+    .card {
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        margin: 10px;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    #archive-container {
+        border: 2px dashed gray;
+        min-height: 100px;
+        padding: 10px;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+</head>
+<body>
+    <!-- Archive Page -->
+    <div id="archive-page">
+        <div id="archive-container"></div>
+    </div>
+
+    <script>
+        const archiveContainer = document.getElementById('archive-container');
+
+        // Allow drop on archive container
+        archiveContainer.addEventListener('dragover', dragOver);
+        archiveContainer.addEventListener('drop', drop);
+
+        // Drag over function
+        function dragOver(event) {
+            event.preventDefault();
+        }
+
+        // Drop function
+        function drop(event) {
+            event.preventDefault();
+            const cardId = event.dataTransfer.getData('text/plain');
+            const card = document.getElementById(cardId);
+            archiveContainer.appendChild(card);
+        }
+    </script>
+</body>
+</html>
