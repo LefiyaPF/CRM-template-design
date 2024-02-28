@@ -1,370 +1,151 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <!-- Font Awesome CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- MESSAGES -->
+<div class="container bg-white py-5 rounded-3">
 
-  <style>
-    /* Customize CSS here */
-    /* Apply Google Font to navbar elements */
-    .navbar {
-  font-family: "Audiowide", sans-serif;
-}
+  <div class="row">
 
-.navbar-nav .nav-item {
-  border-right: 1px solid rgba(0, 0, 0, 0.356);
-  padding-right: 15px;
-}
+    <div style="max-height: 700px; overflow-y: auto;" class="col-md-4">
+         
+      <div class="card-container justify-content-around" id="card-container1">
+              
 
-.navbar-nav .nav-item:last-child {
-  border-right: none;
-}
 
-.navbar-nav .nav-link {
-  padding: 0.5rem 1rem;
-  margin: 0 0.5rem;
-}
-
-.btn-group {
-  margin-left: rem;
-}
-
-.overlay {
-  font-family: "Audiowide", sans-serif;
-  top: 50%;
-  left: 50%;
-  text-align: center;
-  color: white;
-}
-
-.overlay h5 {
-  font-size: 20px;
-  margin-bottom: 20px;
-  color: rgba(17, 8, 8, 0.63);
-}
-
-span {
-  color: rgba(214, 24, 24, 0.63);
-}
-
-.overlay h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
-  color: rgba(0, 0, 0, 0.63);
-}
-
-.banner {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  text-align: center;
-}
-
-.banner img {
-  max-width: 100%;
-  height: auto;
-  display: inline-block;
-}
-
-.banner::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #f0f0f0;
-  clip-path: ellipse(90% 80% at 50% 100%);
-  z-index: -1;
-}
-
-.content {
-  position: relative;
-  font-family: "Audiowide", sans-serif;
-  z-index: 1;
-  padding: 20px;
-  color: brown;
-}
-
-/* Media Queries for responsiveness */
-
-@media (max-width: 768px) {
-  /* Adjust styles for smaller screens */
-  .navbar-nav .nav-item {
-    border-right: none;
-    padding-right: 0;
-    margin-bottom: 10px; /* Add some space between nav items */
-  }
-
-  .navbar-nav .nav-link {
-    padding: 0.5rem 0.75rem;
-    margin: 0;
-  }
-
-  .btn-group {
-    margin-left: 0;
-    margin-top: 10px; /* Add some space between buttons */
-  }
-
-  .overlay h2 {
-    font-size: 24px;
-  }
-
-  .overlay h5 {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-}
-
-        .popup {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            /* Semi-transparent background */
-            overflow: auto;
-        }
-
-        .popup-content {
-            background-color: #fefefe;
-            margin: 10% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 600px;
-            position: relative;
-        }
-
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-        }
-
-        .close:hover {
-            color: red;
-        }
-
-        .card-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .card {
-            width: 200px;
-            margin: 10px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-        }
-
-        .card-content {
-            padding: 10px;
-        }
-
-        .card-content p {
-            width: 100%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .contents {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-        .text {
-            flex-basis: 60%;
-            margin-right: 20px;
-            font-family: "Audiowide", sans-serif;
-            transition: transform 0.3s ease-in-out;
-        }
-        .text:hover{
-            transform: scale(1.05);
-            color: brown;
-        }
-        .image {
-            flex-basis: 35%;
-            margin-top: 20px;
-            transition: transform 0.3s ease-in-out;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-          
-        }
-        .image:hover{
-      transform: scale(1.05);
-    }
-
-        @media (max-width: 768px) {
-            .content {
-                flex-direction: column;
-            }
-            .text, .image {
-                flex-basis: 100%;
-                margin-right: 0;
-            }
-        }
-    </style>
-</head>
-</head>
-<body>
-
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container"> <!-- Wrap navbar content in a container for better responsiveness -->
-      <a class="navbar-brand" href="#">
-        <h2>ALTOS</h2>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto"> <!-- Adjust alignment of navbar items -->
-          <li class="nav-item">
-            <a class="nav-link" href="#crm"><i class="fas fa-home"></i> CRM</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#overview"><i class="fas fa-chart-line"></i> OVERVIEW</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#features"><i class="fas fa-sign-in-alt"></i> FEATURES</a>
-          </li>
-        </ul>
-        <div class="btn-group">
-          <a href="" class="btn btn-success"><i class="fas fa-user"></i> SIGN IN</a>
-          <a href="" class="btn btn-secondary">FREE TRIAL</a>
-        </div>
+              <div class="card" id="card1" draggable="true">
+                  
+                  <div class="card-content">
+                      
+                      <p class="fst-italic">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua</p>
+                      <a class="btn btn-primary hide-btn" data-card-id="card1"
+                          href="">ARCHIVE</a>
+                  </div>
+                  <div style="background-color: #123f6e; align-content: center;justify-content: center;">
+                    <br>
+                <h4 style="text-align: center;color: white;"><i class="company-icon fas fa-building"></i> Card 1
+                </h4>
+                </div>
+              </div>
+              <div class="card drop2" id="card2" draggable="true">
+                  
+                  <div class="card-content drop3">
+                      
+                    <p class="fst-italic">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                      incididunt ut labore et dolore magna aliqua</p>
+                      <a class="btn btn-outline-dark fst-italic fw-medium hide-btn" data-card-id="card2"
+                          href="">ARCHIVE</a>
+                  </div>
+                  <div style="background-color: #123f6e; align-content: center;justify-content: center;">
+                    <br>
+                <h4 style="text-align: center;color: white;"><i class="company-icon fas fa-building"></i> Card 1
+                </h4>
+                </div>
+              </div>
+              <div class="card drop2" id="card3" draggable="true">
+                  <div class="card-content drop3">
+                    <p class="fst-italic">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                      incididunt ut labore et dolore magna aliqua</p>
+                      <a class="btn btn-outline-dark fst-italic fw-medium hide-btn" data-card-id="card3"
+                          href="">ARCHIVE</a>
+                  </div>
+                  <div style="background-color: #123f6e; align-content: center;justify-content: center;">
+                    <br>
+                <h4 style="text-align: center;color: white;"><i class="company-icon fas fa-building"></i> Card 1
+                </h4>
+                </div>
+              </div>
+          </div>
       </div>
-    </div>
-  </nav>
-<br>
-<br>
-<br>
-  <div class="overlay">
-    <h2> <span>Sales teams</span> from good to great</h2>
-      <h5>Altos CRM is the true customer-centric tool for your sales needs. <br>
-        Track leads, get accurate forecasts, and focus on what matters: <br>
-        closing opportunities.
-      </h5>
-      <button class="btn btn-dark">Start Now-Free</button>
-      <button class="btn btn-danger">Start Demo</button><br>
-   
-  </div>
-<br>
-<br>
-<br>
-<br>
 
-  <div class="banner">
-    <img src="https://odoocdn.com/openerp_website/static/src/img/apps/crm/hero_image.webp" alt="Banner Image" style="border-radius: 5px ;box-shadow: 10px 10px;">
-    <br>
-    <div class="content">
-        <br>
-        <br>
-      <!-- Content goes here -->
-      <h1>CRM SALES TEAM</h1>
-      <p style="color: blue;">Learn more about what we offer.</p>
-    </div>
   </div>
 
-  <div class="bb" style="background-color: rgba(192, 240, 255, 0.26);">
-    <br>
-    <br>
-    <div class="container" >
-        <div class="contents">
-            <div class="text">
-                <h2 style="color: rgb(11, 11, 110);">Smart Decisions Dashboard</h2>
-                <p>Smart decisions are based on accurate and real-time data. Dig deeper into your sales metrics with revenue forecasts, team performance analysis, and custom dashboards.</p>
-                <p>Ensure your business stays ahead by leveraging insights from comprehensive revenue forecasts and detailed team performance analysis. Custom dashboards allow you to monitor key metrics at a glance and make informed decisions swiftly.</p>
-            </div>
-            <div class="image">
-                <img src="https://th.bing.com/th/id/R.45d66cf7ad649a7755c62c59d0c3fcf9?rik=CtqX%2bjy2SetJoA&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2fteamwork-transparent-background%2fteamwork-transparent-background-8.png&ehk=TICT6ZY9EM6IkaE5WWmHBqY54IJki%2f%2bU5XgTaeYGXEU%3d&risl=&pid=ImgRaw&r=0" alt="Dashboard Image">
-            </div>
-        </div>
-    </div>
-    </div>
-
-  <!-- MESSAGES -->
-  <div class="container">
-    <div class="row">
-        <div style="max-height: 700px; overflow-y: auto;" class="col-md-6">
-            <div class="card-container drop1 justify-content-around" id="card-container1" ondrop="drop(event)"
-                ondragover="allowDrop(event)">
-                <!-- Card content -->
-                <div class="card drop2" id="card1" draggable="true" ondragstart="drag(event)"
-                    onclick="openPopup('card1')">
-                    <h4><img src="" alt="Image 1"><span
-                            class="fst-italic body mx-2">Company Name</span></h4>
-                    <div class="card-content drop3">
-                        <h5 class="fst-italic">SUBJECT</h5>
-                        <p class="fst-italic">"Embrace the uncertainty of today with the confidence of tomorrow.
-                            Every challenge is an opportunity, and every setback is a lesson. Keep moving forward,
-                            for greatness lies ahead."</p>
-                        <a class="btn btn-outline-success fst-italic fw-medium" href="">READ</a>
-                    </div>
-                </div>
-
-                <div class="card drop2" id="card2" draggable="true" ondragstart="drag(event)"
-                    onclick="openPopup('card2')">
-                    <h4><img src="" alt="Image 1"><span
-                            class="fst-italic body mx-2">Company Name</span></h4>
-                    <div class="card-content drop3">
-                        <h5 class="fst-italic">SUBJECT</h5>
-                        <p class="fst-italic">"Embrace the uncertainty of today with the confidence of tomorrow.
-                            Every challenge is an opportunity, and every setback is a lesson. Keep moving forward,
-                            for greatness lies ahead."</p>
-                        <a class="btn btn-outline-success fst-italic fw-medium" href="">READ</a>
-                    </div>
-                </div>
-
-                <div class="card drop2" id="card3" draggable="true" ondragstart="drag(event)"
-                    onclick="openPopup('card3')">
-                    <h4><img src="" alt="Image 1"><span
-                            class="fst-italic body mx-2">Company Name</span></h4>
-                    <div class="card-content drop3">
-                        <h5 class="fst-italic">SUBJECT</h5>
-                        <p class="fst-italic">"Embrace the uncertainty of today with the confidence of tomorrow.
-                            Every challenge is an opportunity, and every setback is a lesson. Keep moving forward,
-                            for greatness lies ahead."</p>
-                        <a class="btn btn-outline-success fst-italic fw-medium" href="">READ</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<br>
+<center>
+  <a class="btn btn-outline-success fst-italic fw-medium" href="{% url 'hidden' %}">VIEW ARCHIVED</a>
+</center>
+<br>
 
-</body>
 
-</html>
+
+
+<div id="archive-popup"
+  style="display: none; position: fixed; top: 50%; left: 85%; transform: translate(-50%, -50%); background-color: rgb(0, 0, 0); padding: 20px; border: 1px solid rgb(0, 0, 0); border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
+  <p class="text-warning px-5">Swipe to Archive</p>
+  <center>
+      <img width="50px" class="img-fluid" src="{% static 'images/archived.png' %}" alt="">
+  </center>
+
+</div>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      // Function to show popup when archiving
+      function showArchivePopup() {
+          var popup = document.getElementById('archive-popup');
+          popup.style.display = 'block';
+          setTimeout(function () {
+              popup.style.display = 'none';
+          }, 2000); // Hide popup after 2 seconds
+      }
+
+      // Function to hide a card
+      function hideCard(cardId) {
+          var card = document.getElementById(cardId);
+          card.style.display = 'none';
+          sessionStorage.setItem(cardId, 'hidden');
+      }
+
+      // Function to unhide a card
+      function unhideCard(cardId) {
+          var card = document.getElementById(cardId);
+          card.style.display = 'block';
+          sessionStorage.removeItem(cardId);
+      }
+
+      // Hide cards that were previously hidden
+      for (var i = 0; i < sessionStorage.length; i++) {
+          var cardId = sessionStorage.key(i);
+          hideCard(cardId);
+      }
+
+      // Add event listeners to hide buttons
+      var hideButtons = document.querySelectorAll('.hide-btn');
+      hideButtons.forEach(function (button) {
+          button.addEventListener('click', function () {
+              var cardId = button.getAttribute('data-card-id');
+              hideCard(cardId);
+          });
+      });
+
+      // Add event listeners to unhide buttons
+      var unhideButtons = document.querySelectorAll('.unhide-btn');
+      unhideButtons.forEach(function (button) {
+          button.addEventListener('click', function () {
+              var cardId = button.getAttribute('data-card-id');
+              unhideCard(cardId);
+          });
+      });
+
+      // Add event listener to cards for drag
+      var cards = document.querySelectorAll('.card');
+      cards.forEach(function (card) {
+          var startX = 0;
+
+          card.addEventListener('dragstart', function (e) {
+              startX = e.clientX;
+              showArchivePopup();
+          });
+
+          card.addEventListener('dragend', function (e) {
+              var deltaX = Math.abs(e.clientX - startX);
+              if (deltaX >= 20) {
+                  var cardId = card.id;
+                  hideCard(cardId);
+                  window.location.href = "{% url 'hidden' %}";
+              }
+          });
+      });
+
+  });
+</script>

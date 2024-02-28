@@ -28,6 +28,18 @@
     .hidden {
         display: none;
     }
+
+    /* Styling for archive popup */
+    #archive-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        border: 2px solid #000;
+        padding: 20px;
+        z-index: 9999;
+    }
 </style>
 </head>
 <body>
@@ -45,10 +57,14 @@
         <button id="undo-btn">Undo</button>
     </div>
 
+    <!-- Archive Popup -->
+    <div id="archive-popup" style="display: none;"></div>
+
     <script>
         const homePage = document.getElementById('home-page');
         const archiveContainer = document.getElementById('archive-container');
         const undoButton = document.getElementById('undo-btn');
+        const archivePopup = document.getElementById('archive-popup');
         let movedCards = [];
 
         // Add event listeners for drag-and-drop on cards
@@ -111,6 +127,20 @@
                 archiveCard.classList.remove('hidden');
             });
         }
+
+        // Show archive popup
+        function showArchivePopup() {
+            const hiddenCards = document.querySelectorAll('.hidden');
+            let popupContent = "<p><strong>Archived Cards:</strong></p>";
+            hiddenCards.forEach(card => {
+                popupContent += card.outerHTML + "<br>";
+            });
+            archivePopup.innerHTML = popupContent;
+            archivePopup.style.display = 'block';
+        }
+
+        // Add event listener for showing the archive popup
+        archiveContainer.addEventListener('dragstart', showArchivePopup);
     </script>
 </body>
 </html>

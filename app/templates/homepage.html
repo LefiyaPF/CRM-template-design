@@ -213,6 +213,8 @@ span {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
+            font-family: "Audiowide", sans-serif;
+            border-radius: 10px;
         }
 
        
@@ -368,9 +370,9 @@ span {
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container"> <!-- Wrap navbar content in a container for better responsiveness -->
       <a class="navbar-brand" href="#">
-        <h2>ALTOS</h2>
+        <h2 class="mx-2">ALTOS</h2>
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      <button class="navbar-toggler mx-2" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -422,6 +424,97 @@ span {
       <p style="color: blue;">Learn more about what we offer.</p>
     </div>
   </div>
+
+
+  <br>
+  <br>
+
+    <div class="row">
+      <div class="contents">
+        
+          <div class="text">
+            <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+              <h2 style="color: rgb(11, 11, 110);">Keep opportunities within view</h2>
+              <p>Smart decisions are based on accurate and real-time data. Dig deeper into your sales metrics with revenue forecasts, team performance analysis, and custom dashboards.</p>
+              <p>Ensure your business stays ahead by leveraging insights from comprehensive revenue forecasts and detailed team performance analysis. Custom dashboards allow you to monitor key metrics at a glance and make informed decisions swiftly.</p>
+          </div>
+          
+   
+  
+     
+    
+          <div style="max-height: 700px; overflow-y: auto;" class="col-md-4">
+         
+            <div class="card-container justify-content-around" id="card-container1">
+                    
+      
+      
+                    <div class="card" id="card1" draggable="true">
+                        
+                        <div class="card-content">
+                            
+                            <p class="hide-btn" data-card-id="card1" >Lorem ipsum dolor sit amet, </p>
+                             <p>consectetur adipiscing elit, sed do eiusmod tempor</p>
+                              incididunt ut labore et dolore magna aliqua
+                           
+                        </div>
+                        <div style="background-color: #123f6e; align-content: center;justify-content: center;">
+                          <br>
+                      <h4 style="text-align: center;color: white;"><i class="company-icon fas fa-building"></i> Card 1
+                      </h4>
+                      </div>
+                    </div>
+                    <div class="card " id="card2" draggable="true">
+                        
+                        <div class="card-content">
+                            
+                          <p class="hide-btn" data-card-id="card2">Lorem ipsum dolor sit amet, </p>
+                          <p>consectetur adipiscing elit, sed do eiusmod tempor</p>
+                           incididunt ut labore et dolore magna aliqua
+                            
+                        </div>
+                        <div style="background-color: #123f6e; align-content: center;justify-content: center;">
+                          <br>
+                      <h4 style="text-align: center;color: white;"><i class="company-icon fas fa-building"></i> Card 2
+                      </h4>
+                      </div>
+                    </div>
+                    <div class="card " id="card3" draggable="true">
+                        <div class="card-content">
+                          <p class="hide-btn" data-card-id="card3">Lorem ipsum dolor sit amet, </p>
+                          <p>consectetur adipiscing elit, sed do eiusmod tempor</p>
+                           incididunt ut labore et dolore magna aliqua
+                            
+                        </div>
+                        <div style="background-color: #123f6e; align-content: center;justify-content: center;">
+                          <br>
+                      <h4 style="text-align: center;color: white;"><i class="company-icon fas fa-building"></i> Card 3
+                      </h4>
+                      </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+</div>
+<center>
+  <a class="btn btn-danger" href="{% url 'hidden_cards' %}">  <i class="fas fa-archive" style="color: yellow;"></i> VIEW HIDDEN</a>
+</center>
+
+<br>
+<br>
+
+<div class="px-5 rounded-3" id="archive-popup"
+  style="display: none; position: fixed; top: 40%; left: 62%; transform: translate(-50%, -50%); background-color: #123f6e; padding: 25px; border: 1px solid;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
+  ><p class="text-white pt-2"> <i class="fas fa-archive" style="color: yellow;"></i> Archive</p>
+</div>
 
   <div class="bb" style="background-color: rgba(192, 240, 255, 0.26);">
     <br>
@@ -628,68 +721,7 @@ span {
 </div>
 
   <!-- MESSAGES -->
-  <div class="container">
-    <div class="row">
-        <div style="max-height: 700px; overflow-y: auto;" class="col-md-6">
-            <div class="card-container drop1 justify-content-around" id="card-container1" ondrop="drop(event)"
-                ondragover="allowDrop(event)">
-                <!-- Card content -->
-                <div class="card drop2" id="card1" draggable="true" ondragstart="drag(event)"
-                    onclick="openPopup('card1')">
-                    <h4><img src="" alt="Image 1"><span
-                            class="fst-italic body mx-2">Company Name</span></h4>
-                    <div class="card-content drop3">
-                        <h5 class="fst-italic">SUBJECT</h5>
-                        <p class="fst-italic">"Embrace the uncertainty of today with the confidence of tomorrow.
-                            Every challenge is an opportunity, and every setback is a lesson. Keep moving forward,
-                            for greatness lies ahead."</p>
-                        <a class="btn btn-outline-success fst-italic fw-medium" href="">READ</a>
-                    </div>
-                </div>
-
-                <div class="card drop2" id="card2" draggable="true" ondragstart="drag(event)"
-                    onclick="openPopup('card2')">
-                    <h4><img src="" alt="Image 1"><span
-                            class="fst-italic body mx-2">Company Name</span></h4>
-                    <div class="card-content drop3">
-                        <h5 class="fst-italic">SUBJECT</h5>
-                        <p class="fst-italic">"Embrace the uncertainty of today with the confidence of tomorrow.
-                            Every challenge is an opportunity, and every setback is a lesson. Keep moving forward,
-                            for greatness lies ahead."</p>
-                        <a class="btn btn-outline-success fst-italic fw-medium" href="">READ</a>
-                    </div>
-                </div>
-
-                <div class="card drop2" id="card3" draggable="true" ondragstart="drag(event)"
-                    onclick="openPopup('card3')">
-                    <h4><img src="" alt="Image 1"><span
-                            class="fst-italic body mx-2">Company Name</span></h4>
-                    <div class="card-content drop3">
-                        <h5 class="fst-italic">SUBJECT</h5>
-                        <p class="fst-italic">"Embrace the uncertainty of today with the confidence of tomorrow.
-                            Every challenge is an opportunity, and every setback is a lesson. Keep moving forward,
-                            for greatness lies ahead."</p>
-                        <a class="btn btn-outline-success fst-italic fw-medium" href="">READ</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Hidden popup for placing cards -->
-<div id="popup" class="popup">
-    <div class="popup-content">
-        <span class="close" onclick="closePopup()">&times;</span>
-        <h2>Place Card</h2>
-        <p>Drag and drop the card to the target area:</p>
-        <div id="target-container" class="card-container drop1" ondrop="placeCard(event)"
-            ondragover="allowDrop(event)">
-            <!-- Target area for placing cards -->
-        </div>
-    </div>
-</div>
+  
 
 <footer class="footer">
    <div class="container">
@@ -766,74 +798,75 @@ span {
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
-    function allowDrop(ev) {
-        ev.preventDefault();
-    }
-
-    function drag(ev) {
-        ev.dataTransfer.setData("text", ev.target.id);
-    }
-
-    function drop(ev) {
-        ev.preventDefault();
-        var data = ev.dataTransfer.getData("text");
-        var draggedElement = document.getElementById(data);
-        draggedElement.style.opacity = "1"; // Restore opacity
-        var targetContainer = ev.target.closest('.card-container');
-        var originalContainer = document.getElementById(data).closest('.card-container');
-        if (targetContainer && targetContainer !== originalContainer) {
-            targetContainer.appendChild(draggedElement);
-            // Remove the card from the original container
-            originalContainer.removeChild(draggedElement);
+    document.addEventListener('DOMContentLoaded', function () {
+        // Function to show popup when archiving
+        function showArchivePopup() {
+            var popup = document.getElementById('archive-popup');
+            popup.style.display = 'block';
+            setTimeout(function () {
+                popup.style.display = 'none';
+            }, 2000); // Hide popup after 2 seconds
         }
-    }
 
-    function openPopup(cardId) {
-        var popup = document.getElementById("popup");
-        popup.style.display = "block";
-        var targetContainer = document.getElementById("target-container");
-        var card = document.getElementById(cardId);
-        var originalContainer = card.closest('.card-container');
-        var clonedCard = card.cloneNode(true);
-        var uniqueId = cardId + '-popup'; // Add '-popup' suffix to cardId to make it unique
-        clonedCard.id = uniqueId; // Assign unique ID to cloned card
-        clonedCard.onclick = function () {
-            removeCardFromPopup(uniqueId);
-        };
-        targetContainer.appendChild(clonedCard);
-        originalContainer.removeChild(card);
-    }
+        // Function to hide a card
+        function hideCard(cardId) {
+            var card = document.getElementById(cardId);
+            card.style.display = 'none';
+            sessionStorage.setItem(cardId, 'hidden');
+        }
 
-    function closePopup() {
-        var popup = document.getElementById("popup");
-        popup.style.display = "none";
-    }
+        // Function to unhide a card
+        function unhideCard(cardId) {
+            var card = document.getElementById(cardId);
+            card.style.display = 'block';
+            sessionStorage.removeItem(cardId);
+        }
 
-    function placeCard(ev) {
-        ev.preventDefault();
-        var data = ev.dataTransfer.getData("text");
-        var draggedElement = document.getElementById(data);
-        draggedElement.style.opacity = "1"; // Restore opacity
-        var targetContainer = ev.target.closest('.card-container');
-        targetContainer.appendChild(draggedElement);
-        closePopup();
-    }
+        // Hide cards that were previously hidden
+        for (var i = 0; i < sessionStorage.length; i++) {
+            var cardId = sessionStorage.key(i);
+            hideCard(cardId);
+        }
 
-    function removeCardFromPopup(cardId) {
-        var targetContainer = document.getElementById("target-container");
-        var card = document.getElementById(cardId);
-        var originalContainer = card.closest('.card-container');
-        targetContainer.removeChild(card);
-        var originalCardId = cardId.replace('-popup', ''); // Remove '-popup' suffix to get original card ID
-        var originalCard = document.getElementById(originalCardId);
-        originalContainer.appendChild(originalCard);
-    }
-</script>
+        // Add event listeners to hide buttons
+        var hideButtons = document.querySelectorAll('.hide-btn');
+        hideButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                var cardId = button.getAttribute('data-card-id');
+                hideCard(cardId);
+            });
+        });
 
-<!-- POPOVER -->
-<script>
-    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+        // Add event listeners to unhide buttons
+        var unhideButtons = document.querySelectorAll('.unhide-btn');
+        unhideButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                var cardId = button.getAttribute('data-card-id');
+                unhideCard(cardId);
+            });
+        });
+
+        // Add event listener to cards for drag
+        var cards = document.querySelectorAll('.card');
+        cards.forEach(function (card) {
+            var startX = 0;
+
+            card.addEventListener('dragstart', function (e) {
+                startX = e.clientX;
+                showArchivePopup();
+            });
+
+            card.addEventListener('dragend', function (e) {
+                var deltaX = Math.abs(e.clientX - startX);
+                if (deltaX >= 20) {
+                    var cardId = card.id;
+                    hideCard(cardId);
+                    
+                }
+            });
+        });
+
+    });
 </script>
 
 <!-- MODAL JQ -->

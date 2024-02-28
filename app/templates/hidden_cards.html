@@ -1,0 +1,489 @@
+<!-- hidden_cards.html -->
+<!-- hidden_cards.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidden Cards</title>
+    
+    <style>
+        .navbar {
+            font-family: "Audiowide", sans-serif;
+        }
+
+        .navbar-nav .nav-item {
+            border-right: 1px solid rgba(0, 0, 0, 0.356);
+            padding-right: 15px;
+        }
+
+        .navbar-nav .nav-item:last-child {
+            border-right: none;
+        }
+
+        .navbar-nav .nav-link {
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+        }
+
+        .btn-group {
+            margin-left: rem;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-family: "Audiowide", sans-serif;
+        }
+
+
+
+        .card-content {
+            padding: 10px;
+
+        }
+
+        .card-content p {
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .contents {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .text {
+            flex-basis: 60%;
+            margin-right: 20px;
+            font-family: "Audiowide", sans-serif;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .text:hover {
+            transform: scale(1.05);
+            color: brown;
+        }
+
+        .image {
+            flex-basis: 35%;
+            margin-top: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+
+        }
+
+        .image:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+
+            .text,
+            .image {
+                flex-basis: 100%;
+                margin-right: 0;
+            }
+        }
+
+        h3 {
+            font-family: "Audiowide", sans-serif;
+            text-align: center;
+        }
+
+        .aa {
+            border-top-left-radius: 50px;
+            /* Curved top-left corner */
+            border-bottom-right-radius: 50px;
+            font-family: "Audiowide", sans-serif;
+            /* Curved bottom-right corner */
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card {
+            margin: auto;
+            transition: transform 0.3s ease-in-out;
+            border-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        }
+
+        .card img {
+            height: 250px;
+            border-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer {
+            background-color: #363738;
+            padding: 30px 0;
+
+        }
+
+        .footer h5 {
+            color: #fdfbfb;
+            font-size: 18px;
+            font-family: "Audiowide", sans-serif;
+        }
+
+        .footer ul {
+            list-style: none;
+            padding-left: 0;
+            color: #fdfbfb;
+        }
+
+        .footer ul li {
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .footer ul li:hover {
+            color: #007bff;
+            cursor: pointer;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding-left: 0;
+            display: flex;
+            justify-content: center;
+            color: white;
+        }
+
+        .footer h2 {
+            color: white;
+            font-family: "Audiowide", sans-serif;
+        }
+
+        .footer h4 {
+            color: white;
+        }
+
+        .contact-list li {
+            margin-right: 10px;
+            font-size: 24px;
+            /* Increase the font size */
+        }
+
+        .contact-list .fab {
+            color: white;
+        }
+
+        .contact-list li a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .contact-list li a:hover {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .contact-list li a i {
+            margin-right: 5px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container"> <!-- Wrap navbar content in a container for better responsiveness -->
+            <a class="navbar-brand" href="#">
+                <h2 class="mx-2">ALTOS</h2>
+            </a>
+            <button  class="navbar-toggler mx-2" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto"> <!-- Adjust alignment of navbar items -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#crm"><i class="fas fa-home"></i> CRM</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#overview"><i class="fas fa-chart-line"></i> OVERVIEW</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features"><i class="fas fa-sign-in-alt"></i> FEATURES</a>
+                    </li>
+                </ul>
+                <div class="btn-group">
+                    <a href="" class="btn btn-success"><i class="fas fa-user"></i> SIGN IN</a>
+                    <a href="" class="btn btn-secondary">FREE TRIAL</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div class="container">
+            <h3 class="text-center" style="color: #007bff;"><i class="fas fa-archive"></i> Archived <img class="mx-4" width="50px"
+                    src="" alt=""></h3>
+        </div>
+        <div class="row">
+
+            <div class="col-md-2"></div>
+            <div style="max-height: 700px; overflow-y: auto;" class="col-md-8">
+            
+                <div class="card-container" id="card-container1">
+                   
+
+
+                    <div class="card" id="card1">
+                        <div class="card-content ">
+                            
+                          <p>Lorem ipsum dolor sit amet, </p>
+                          <p>consectetur adipiscing elit, sed do eiusmod tempor</p>
+                           incididunt ut labore et dolore magna aliqua<br><br>
+                           <a class="btn btn-info unhide-btn" data-card-id="card1"
+                           href="">UNARCHIVE</a>
+                        </div>
+                        
+                
+                        <div style="background-color: #123f6e; align-content: center;justify-content: center;">
+                          <br>
+                      <h4 style="text-align: center;color: white;"><i class="company-icon fas fa-building"></i> Card 1
+                      </h4>
+                      </div>
+                      </div>
+                        
+                    
+                    <div class="card" id="card2">
+                        <div class="card-content">
+                            <p>Lorem ipsum dolor sit amet, </p>
+                          <p>consectetur adipiscing elit, sed do eiusmod tempor</p>
+                           incididunt ut labore et dolore magna aliqua<br><br>
+                            <a class="btn btn-info unhide-btn" data-card-id="card2"
+                                href="">UNARCHIVE</a>
+                        </div>
+                        <div style="background-color: #123f6e; align-content: center;justify-content: center;">
+                            <br>
+                        <h4 style="text-align: center;color: white;"><i class="company-icon fas fa-building"></i> Card 2
+                        </h4>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="card" id="card3">
+                        <div class="card-content">
+                            <p>Lorem ipsum dolor sit amet, </p>
+                          <p>consectetur adipiscing elit, sed do eiusmod tempor</p>
+                           incididunt ut labore et dolore magna aliqua<br><br>
+                            <a class="btn btn-info unhide-btn" data-card-id="card3"
+                                href="">UNARCHIVE</a>
+                        </div>
+                        <div style="background-color: #123f6e; align-content: center;justify-content: center;">
+                            <br>
+                        <h4 style="text-align: center;color: white;"><i class="company-icon fas fa-building"></i> Card 3
+                        </h4>
+                        </div>
+                    </div>
+                    <div class="card" id="card4" draggable="true">
+                        <h4 style="background-color: #ede200cb;" class=" text-white"><img style="border: 2px solid white;"
+                                src="" alt="Image 1"><span
+                                class="fst-italic body mx-2">Company FOUR</span></h4>
+                        <div class="card-content drop3">
+                            <h5 class="fst-italic">SUBJECT</h5>
+                            <p class="fst-italic">"Embrace the uncertainty of today with the confidence of tomorrow.
+                                Every challenge is an
+                                opportunity, and every setback is a lesson. Keep moving forward, for greatness lies
+                                ahead."</p>
+                            <a class="btn btn-outline-dark fst-italic fw-medium unhide-btn" data-card-id="card4"
+                                href="">UNARCHIVE</a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+
+        </div>
+
+    </div>
+
+    <br>
+    <center>
+        <a class="btn btn-success" href="{% url 'homepage' %}"><i class="fas fa-home" style="color: yellow;"></i> Go to Home</a>
+    </center>
+
+   <br>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-3">
+                    <h5>Community</h5>
+                    <ul>
+                        <li>Tutorials</li>
+                        <li>Documentation</li>
+                        <li>Forum</li>
+                    </ul>
+                    <h5>Open Source</h5>
+                    <ul>
+                        <li>Download</li>
+                        <li>Github</li>
+                        <li>Runbot</li>
+                        <li>Translations</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Services</h5>
+                    <ul>
+                        <li>Odoo.sh Hosting</li>
+                        <li>Support</li>
+                        <li>Upgrade</li>
+                        <li>Custom Developments</li>
+                        <li>Education</li>
+                        <li>Find an Accountant</li>
+                        <li>Find a Partner</li>
+                        <li>Become a Partner</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>About us</h5>
+                    <ul>
+                        <li>Our company</li>
+                        <li>Brand Assets</li>
+                        <li>Contact us</li>
+                        <li>Jobs</li>
+                        <li>Events</li>
+                        <li>Podcast</li>
+                        <li>Blog</li>
+                        <li>Customers</li>
+                        <li>Legal • Privacy</li>
+                        <li>Security</li>
+                    </ul>
+                </div>
+                <div class="col-md-12 text-center mt-5">
+                    <h2>ALTOS</h2>
+                    <ul class="contact-list">
+                        <li>
+                            <h4><a href="#"><i class="fab fa-facebook"></i> </a></h4>
+                        </li>
+                        <li>
+                            <h4><a href="#"><i class="fab fa-twitter"></i></a></h4>
+                        </li>
+                        <li>
+                            <h4><a href="#"><i class="fab fa-instagram"></i></a></h4>
+                        </li>
+                        <li>
+                            <h4><a href="#"><i class="fab fa-linkedin"></i> </a></h4>
+                        </li>
+                        <li>
+                            <h4><a href="#"><i class="fab fa-github"></i> </a></h4>
+                        </li>
+                        <li>
+                            <h4><a href="mailto:info@example.com"><i class="far fa-envelope" style="color: white;"></i>
+                                </a></h4>
+                        </li>
+                        <li>
+                            <h4><a href="tel:+1234567890"><i class="fas fa-phone" style="color: white;"></i> </a></h4>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <footer class="text-light py-3" style='background: linear-gradient(to right, #030303, #373f3e);'>
+
+        <div class="col text-center">
+            <p>&copy; 2024 Academy. All Rights Reserved.</p>
+        </div>
+
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Function to unhide a card
+            function unhideCard(cardId) {
+                var card = document.getElementById(cardId);
+                card.style.display = 'block';
+                sessionStorage.removeItem(cardId); // Remove from sessionStorage
+            }
+    
+            // Add event listeners to unhide buttons
+            var unhideButtons = document.querySelectorAll('.unhide-btn');
+            unhideButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var cardId = button.getAttribute('data-card-id');
+                    unhideCard(cardId);
+                    button.parentElement.style.display = 'none'; // Hide the list item
+                });
+            });
+    
+            // Hide cards that are not hidden
+            var cards = document.querySelectorAll('.card');
+            cards.forEach(function (card) {
+                var cardId = card.getAttribute('id');
+                if (sessionStorage.getItem(cardId) !== 'hidden') {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <!-- JAVASCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+<script src="//cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/swiper-bundle.min.js"></script>
+
+<!-- JavaScript -->
+<!--Uncomment this line-->
+<script src="//cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/script.js"></script>
+
+</html>

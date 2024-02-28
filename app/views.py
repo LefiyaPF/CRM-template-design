@@ -4,3 +4,6 @@ from django.shortcuts import render
 
 def homepage(request):
     return render(request,"homepage.html")
+
+def hidden_cards(request):
+    return render(request,"hidden_cards.html")
