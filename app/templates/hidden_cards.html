@@ -2,7 +2,7 @@
 <!-- hidden_cards.html -->
 <!DOCTYPE html>
 <html lang="en">
-
+      {% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -274,9 +274,11 @@
 
 
                     <div class="card" id="card1">
-                        <div class="card-content ">
-                            
-                          <p>Lorem ipsum dolor sit amet, </p>
+                        <div class="card-content">
+                           
+                            <img class="mx-auto" src="{% static 'Image/msg2.png' %}" alt="Dashboard Image" width="20%" style="aspect-ratio: 1/1; height: 20%;" ><br><br>
+                           
+                            <p>Lorem ipsum dolor sit amet, </p>
                           <p>consectetur adipiscing elit, sed do eiusmod tempor</p>
                            incididunt ut labore et dolore magna aliqua<br><br>
                            <a class="btn btn-info unhide-btn" data-card-id="card1"
@@ -294,6 +296,7 @@
                     
                     <div class="card" id="card2">
                         <div class="card-content">
+                            <img src="{% static 'Image/msg3.png' %}" alt="Dashboard Image" width="20%" style="aspect-ratio: 1/1; height: 20%;" ><br><br>
                             <p>Lorem ipsum dolor sit amet, </p>
                           <p>consectetur adipiscing elit, sed do eiusmod tempor</p>
                            incididunt ut labore et dolore magna aliqua<br><br>
@@ -310,6 +313,7 @@
                     
                     <div class="card" id="card3">
                         <div class="card-content">
+                            <img src="{% static 'Image/msg4.png' %}" alt="Dashboard Image" width="20%" style="aspect-ratio: 1/1; height: 20%;" ><br><br>
                             <p>Lorem ipsum dolor sit amet, </p>
                           <p>consectetur adipiscing elit, sed do eiusmod tempor</p>
                            incididunt ut labore et dolore magna aliqua<br><br>
@@ -322,21 +326,55 @@
                         </h4>
                         </div>
                     </div>
-                    <div class="card" id="card4" draggable="true">
-                        <h4 style="background-color: #ede200cb;" class=" text-white"><img style="border: 2px solid white;"
-                                src="" alt="Image 1"><span
-                                class="fst-italic body mx-2">Company FOUR</span></h4>
-                        <div class="card-content drop3">
-                            <h5 class="fst-italic">SUBJECT</h5>
-                            <p class="fst-italic">"Embrace the uncertainty of today with the confidence of tomorrow.
-                                Every challenge is an
-                                opportunity, and every setback is a lesson. Keep moving forward, for greatness lies
-                                ahead."</p>
-                            <a class="btn btn-outline-dark fst-italic fw-medium unhide-btn" data-card-id="card4"
+                   
+
+                    <div class="card" id="card4">
+                        <div class="card-content">
+                            <img src="{% static 'Image/msg2.png' %}" alt="Dashboard Image" width="20%" style="aspect-ratio: 1/1; height: 20%;" ><br><br>
+                            <p>Lorem ipsum dolor sit amet, </p>
+                          <p>consectetur adipiscing elit, sed do eiusmod tempor</p>
+                           incididunt ut labore et dolore magna aliqua<br><br>
+                            <a class="btn btn-info unhide-btn" data-card-id="card4"
                                 href="">UNARCHIVE</a>
+                        </div>
+                        <div style="background-color: #123f6e; align-content: center;justify-content: center;">
+                            <br>
+                        <h4 style="text-align: center;color: white;"><i class="company-icon fas fa-building"></i> Card 4
+                        </h4>
                         </div>
                     </div>
 
+                    <div class="card" id="card5">
+                        <div class="card-content">
+                            <img src="{% static 'Image/msg2.png' %}" alt="Dashboard Image" width="20%" style="aspect-ratio: 1/1; height: 20%;" ><br><br>
+                            <p>Lorem ipsum dolor sit amet, </p>
+                          <p>consectetur adipiscing elit, sed do eiusmod tempor</p>
+                           incididunt ut labore et dolore magna aliqua<br><br>
+                            <a class="btn btn-info unhide-btn" data-card-id="card5"
+                                href="">UNARCHIVE</a>
+                        </div>
+                        <div style="background-color: #123f6e; align-content: center;justify-content: center;">
+                            <br>
+                        <h4 style="text-align: center;color: white;"><i class="company-icon fas fa-building"></i> Card 5
+                        </h4>
+                        </div>
+                    </div>
+
+                    <div class="card" id="card6">
+                        <div class="card-content">
+                            <img src="{% static 'Image/msg2.png' %}" alt="Dashboard Image" width="20%" style="aspect-ratio: 1/1; height: 20%;" ><br><br>
+                            <p>Lorem ipsum dolor sit amet, </p>
+                          <p>consectetur adipiscing elit, sed do eiusmod tempor</p>
+                           incididunt ut labore et dolore magna aliqua<br><br>
+                            <a class="btn btn-info unhide-btn" data-card-id="card6"
+                                href="">UNARCHIVE</a>
+                        </div>
+                        <div style="background-color: #123f6e; align-content: center;justify-content: center;">
+                            <br>
+                        <h4 style="text-align: center;color: white;"><i class="company-icon fas fa-building"></i> Card 6
+                        </h4>
+                        </div>
+                    </div>
 
                 </div>
             </div>
