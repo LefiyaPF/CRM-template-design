@@ -25,6 +25,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
+    .products-card{
+      border: 3px solid rgba(0, 0, 0, 0.397);
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 5%;
+      transition: transform 0.3s ease-in-out;
+    }
+    .products-card:hover {
+      transform: scale(1.05);
+    }
+
+    .products-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .products-details {
+      padding: 15px;
+    }
+
+    .products-title {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .products-price {
+      color: #2d4380;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .products-description {
+      font-size: 0.9rem;
+    }
     .containers {
       max-width: 800px;
       margin: 0 auto;
@@ -720,56 +755,180 @@
       </div>
     </div>
   </nav>
-  <br>
-  <br>
-  <br>
-  <div class="overlay">
-    <h2> <span>Sales teams</span> from good to great</h2>
+ 
+  <!-- <div class="container">
+    <div class="contents">
+      <div class="text">
+        <h2> <span>Sales teams</span> from good to great</h2>
     <h5>Altos CRM is the true customer-centric tool for your sales needs. <br>
       Track leads, get accurate forecasts, and focus on what matters: <br>
       closing opportunities.
     </h5>
     <button class="btn btn-dark">Start Now-Free</button>
     <button class="btn btn-danger">Start Demo</button><br>
+      </div>
+      <div class="image">
+        <img data-aos="zoom-in-right"
+          src="https://synchronicitydesigns.com/application/files/4415/9793/2392/CRM_secrets.jpeg"  width="100%"
+          alt="Dashboard Image">
+      </div>
+    </div>
+  </div> -->
+<!-- </div> -->
 
+  
+<br>
+  <br>
+ 
+    <div class="container"  data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="1200">
+    <img src="https://www.softwaresuggest.com/blog/wp-content/uploads/2019/12/10-WordPress-CRM-Plugins-to-Help-You-Manage-Your-Business-768x307.png" alt="" width="100%" style="height: 400px;">
   </div>
   <br>
   <br>
+  <div class="overlay" style="background-color: #094483;" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+    <br>
+    <br>
+    <h2 style="color: WHITE;"> <span style="color: yellow">Sales teams</span> from good to great</h2>
+    <h5 style="color: WHITE;">Altos CRM is the true customer-centric tool for your sales needs. <br>
+      Track leads, get accurate forecasts, and focus on what matters: <br>
+      closing opportunities.
+    </h5>
+    <button class="btn btn-dark">Start Now-Free</button>
+    <button class="btn btn-warning">Start Demo</button><br>
+    <br>
+    <br>
+  </div>
+
+  
+  <br>
+  <br>
   <br>
   <br>
 
-  <div class="banner" data-aos="fade-down-left">
+  <div class="dd">  
+    <h1 style="color:rgb(46, 33, 99);padding-left: 50px; text-align: center;">Top Features</h1>
+    <BR>
+ 
+<div class="container" >
+  <div class="row" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+
+    <div class="col-lg-4 col-md-6">
+      <div class="products-card">
+        <img src="https://th.bing.com/th/id/OIP.3HUptJopXvUdt6nQuQ2RPQHaEb?w=914&h=546&rs=1&pid=ImgDetMain" alt="Product Image" class="product-image">
+        <div class="products-details">
+          <h3 class="products-title">FEATURES</h3>
+          <p class="products-price fst-italic fw-medium">Ensure your business stays ahead by leveraging insights from comprehensive revenue forecasts and detailed
+            team performance analysis.</p>
+          <button  class="btn btn-danger btn-sm">Read More</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more product cards as needed -->
+
+    <div class="col-lg-4 col-md-6">
+      <div class="products-card">
+        <img src="https://th.bing.com/th/id/OIP.CZcSHEqdGFVxeXgkSxcZegHaEc?w=1024&h=614&rs=1&pid=ImgDetMain" alt="Product Image" class="product-image">
+        <div class="products-details">
+          <h3 class="products-title">FEATURES</h3>
+          <p class="products-price fst-italic fw-medium">Ensure your business stays ahead by leveraging insights from comprehensive revenue forecasts and detailed
+            team performance analysis. </p>
+          <a href="./kovalam.html"><button  class="btn btn-danger btn-sm">Read More</button></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more product cards as needed -->
+
+    <div class="col-lg-4 col-md-6">
+      <div class="products-card">
+        <img src="https://th.bing.com/th/id/OIP.3HUptJopXvUdt6nQuQ2RPQHaEb?w=914&h=546&rs=1&pid=ImgDetMain" alt="Product Image" class="product-image">
+        <div class="products-details">
+          <h3 class="products-title">FEATURES</h3>
+          <p class="products-price fst-italic fw-medium">Ensure your business stays ahead by leveraging insights from comprehensive revenue forecasts and detailed
+            team performance analysis.</p>
+          <a href="./kollam.html"><button  class="btn btn-danger btn-sm">Read More</button></a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-lg-4 col-md-6">
+      <div class="products-card">
+        <img src="https://th.bing.com/th/id/OIP.CZcSHEqdGFVxeXgkSxcZegHaEc?w=1024&h=614&rs=1&pid=ImgDetMain" alt="Product Image" class="product-image">
+        <div class="products-details">
+          <h3 class="products-title">FEATURES</h3>
+          <p class="products-price fst-italic fw-medium">Ensure your business stays ahead by leveraging insights from comprehensive revenue forecasts and detailed
+            team performance analysis.</p>
+          <button  class="btn btn-danger btn-sm">Read More</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+      <div class="products-card">
+        <img src="https://th.bing.com/th/id/OIP.3HUptJopXvUdt6nQuQ2RPQHaEb?w=914&h=546&rs=1&pid=ImgDetMain" alt="Product Image" class="product-image">
+        <div class="products-details">
+          <h3 class="products-title">FEATURES</h3>
+          <p class="products-price fst-italic fw-medium">Ensure your business stays ahead by leveraging insights from comprehensive revenue forecasts and detailed
+            team performance analysis.</p>
+          <button  class="btn btn-danger btn-sm">Read More</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-lg-4 col-md-6">
+      <div class="products-card">
+        <img src="https://th.bing.com/th/id/OIP.CZcSHEqdGFVxeXgkSxcZegHaEc?w=1024&h=614&rs=1&pid=ImgDetMain" alt="Product Image" class="product-image">
+        <div class="products-details">
+          <h3 class="products-title">FEATURES</h3>
+          <p class="products-price fst-italic fw-medium">Ensure your business stays ahead by leveraging insights from comprehensive revenue forecasts and detailed
+            team performance analysis.</p>
+          <button  class="btn btn-danger btn-sm">Read More</button>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+</div>
+
+  <!-- <div class="banner" data-aos="fade-down-left">
     <img
-      src="https://cdn.dribbble.com/users/2501763/screenshots/5719060/upturn_homepage_dribbble_4x.jpg?compress=1&resize=1000x750"
+      src="https://th.bing.com/th/id/OIP.ipOW3sS4OkhHkA3jKTXPMQHaD5?rs=1&pid=ImgDetMain" width="50%"
       alt="Banner Image" style="border-radius: 5px ;box-shadow: 10px 10px;">
     <br>
     <div class="content">
       <br>
       <br>
-      <!-- Content goes here -->
+      
       <h1>CRM SALES TEAM</h1>
-      <p style="color: blue;">Learn more about what we offer.</p>
+      <p style="color: rgb(0, 0, 0);">Ensure your business stays ahead by leveraging insights from comprehensive revenue forecasts and detailed
+        team performance analysis.Ensure your business stays ahead by leveraging insights from comprehensive revenue forecasts and detailed
+        team performance analysis.Ensure your business stays ahead by leveraging insights from comprehensive revenue forecasts and detailed
+        team performance analysis.</p>
     </div>
   </div>
 
 
   <br>
-  <br>
+  <br> -->
 
 
   <h1 style="color: rgb(10, 10, 126);"><i class="fas fa-envelope text-warning"></i> MESSAGES</h1>
-  <div class="row">
+  <div class="row d-flex">
 
-      <div class="card-container justify-content-around" id="card-container1">
+      <div class="card-container justify-content-around" id="card-container1" style="margin-bottom: 2%;">
 
-        <div class="card" id="card1" draggable="true" data-aos="fade-left" class="col-md-4">
+        <div class="card " id="card1" draggable="true" data-aos="fade-left"  style="padding: 1%;margin-bottom: 2%">
 
           <div class="card-content">
             <img src="{% static 'Image/msg2.png' %}" alt="Dashboard Image" width="20%" style="aspect-ratio: 1/1; height: 20%;" ><br><br>
             <p class="hide-btn" data-card-id="card1">Lorem ipsum dolor sit amet, </p>
             <p>consectetur adipiscing elit, sed do eiusmod tempor</p>
             incididunt ut labore et dolore magna aliqua
-
           </div>
           <div style="background-color: #123f6e; align-content: center;justify-content: center;">
             <br>
@@ -779,7 +938,7 @@
         </div>
      
       
-        <div class="card " id="card2" draggable="true" data-aos="fade-left" class="col-md-4">
+        <div class="card " id="card2" draggable="true" data-aos="fade-left" class="col-md-4" style="padding: 1%;margin-bottom: 2%">
 
           <div class="card-content">
             <img src="{% static 'Image/msg3.png' %}" alt="Dashboard Image" width="20%" style="aspect-ratio: 1/1; height: 20%;" ><br><br>
@@ -796,7 +955,7 @@
         </div>
      
     
-        <div class="card " id="card3" draggable="true" data-aos="fade-left" class="col-md-4">
+        <div class="card " id="card3" draggable="true" data-aos="fade-left"  style="padding: 1%;margin-bottom: 2%">
           
           <div class="card-content">
             
@@ -806,7 +965,7 @@
             incididunt ut labore et dolore magna aliqua
 
           </div>
-          <div style="background-color: #123f6e; align-content: center;justify-content: center;">
+          <div style="background-color: #123f6e; align-content: center;justify-content: center;" >
             <br>
             <h4 style="text-align: center;color: white;"><i class="company-icon fas fa-building"></i> Card 3
             </h4>
@@ -814,7 +973,7 @@
         </div>
 
         
-        <div class="card " id="card4" draggable="true" data-aos="fade-left" class="col-md-4">
+        <div class="card " id="card4" draggable="true" data-aos="fade-left"  style="padding: 1%;">
 
           <div class="card-content">
             <img src="{% static 'Image/msg2.png' %}" alt="Dashboard Image" width="20%" style="aspect-ratio: 1/1; height: 20%;" ><br><br>
@@ -830,7 +989,7 @@
           </div>
         </div>
 
-        <div class="card" id="card5" draggable="true" data-aos="fade-left" class="col-md-4">
+        <div class="card" id="card5" draggable="true" data-aos="fade-left"  style="padding: 1%;">
 
           <div class="card-content">
             <img src="{% static 'Image/msg2.png' %}" alt="Dashboard Image" width="20%" style="aspect-ratio: 1/1; height: 20%;" ><br><br>
@@ -846,7 +1005,7 @@
           </div>
         </div>
 
-        <div class="card" id="card6" draggable="true" data-aos="fade-left" class="col-md-4">
+        <div class="card" id="card6" draggable="true" data-aos="fade-left"  style="padding: 1%;">
 
           <div class="card-content">
             <img src="{% static 'Image/msg2.png' %}" alt="Dashboard Image" width="20%" style="aspect-ratio: 1/1; height: 20%;" ><br><br>
